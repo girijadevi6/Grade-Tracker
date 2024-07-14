@@ -1,0 +1,36 @@
+from colorama import init, Fore
+
+# Initialize colorama
+init(autoreset=True)
+
+# Welcome message
+print(Fore.BLUE + "Welcome to Student Grade Tracker")
+
+# Input number of subjects
+num_subjects = int(input(Fore.CYAN + "Enter the number of subjects: "))
+total_grade = 0
+
+# Input grades for subjects and calculate total
+for i in range(1, num_subjects + 1):
+    grade = float(input(Fore.YELLOW + f"Enter grade for subject {i}: "))
+    total_grade += grade
+
+# Calculate average grade
+avg_grade = total_grade / num_subjects
+
+# Calculate GPA based on average grade
+if avg_grade >= 90:
+    gpa = "A"
+elif avg_grade >= 80:
+    gpa = "B"
+elif avg_grade >= 70:
+    gpa = "C"
+elif avg_grade >= 60:
+    gpa = "D"
+else:
+    gpa = "F"
+
+# Print overall grade summary
+print("\n" + Fore.GREEN + "Overall Grade Summary")
+print(f"Average Grade: {avg_grade:.2f}")
+print(f"Letter Grade: {gpa}")
